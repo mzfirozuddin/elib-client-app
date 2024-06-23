@@ -5,7 +5,7 @@ import bookImage from "../../../../public/book.png"
 
 const Banner = () => {
     return (
-        <div className='max-w-6xl mx-auto px-2 py-10'>
+        <div className='max-w-6xl mx-auto py-10'>
             <div className='relative'>
                 <Image
                     src={paperBg}
