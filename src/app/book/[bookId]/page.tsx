@@ -9,7 +9,12 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
   let book: Book | null = null;
   try {
     const response = await fetch(
-      `${process.env.BACKEND_URL}/books/${params.bookId}`
+      `${process.env.BACKEND_URL}/books/${params.bookId}`,
+      {
+        next: {
+          revalidate: 3600, //: Now it store cache for 1 hour and after 1 hour it store new cache
+        },
+      }
     );
     if (!response.ok) {
       throw new Error("Error while fetching book");
